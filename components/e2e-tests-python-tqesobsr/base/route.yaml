@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: e2e-tests-python-tqesobsr
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: e2e-tests-python-tqesobsr 
+  name: e2e-tests-python-tqesobsr
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: e2e-tests-python-tqesobsr
+    weight: 100 
